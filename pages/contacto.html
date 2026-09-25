@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Cerámica Artesanal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header class="site-header">
+        <div class="site-header__container container">
+            <a href="../index.html" class="site-header__logo-link">
+                <img src="../img/logo.jpeg" alt="Logo de Cerámica Artesanal" class="site-header__logo">
+            </a>
+            <h1 class="site-header__title">ARTESANO</h1>
+            <nav class="site-nav">
+                <ul class="site-nav__list">
+                    <li><a href="../index.html" class="site-nav__link">Inicio</a></li>
+                    <li><a href="productos.html" class="site-nav__link">Productos</a></li>
+                    <li><a href="contacto.html" class="site-nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+
+            <section class="info-section">
+                <h3 class="info-section__title">Sobre Nosotros</h3>
+                <p class="info-section__text">Detrás de cada pieza que sale del horno hay tres pares de manos con pasiones, mañas y especialidades bien distintas:</p>
+                <ul class="equipo-lista">
+                    <li>
+                    <strong>Mauro:</strong> el alquimista del equipo. Investiga y formula mezclas de arcilla a medida, buscando siempre el equilibrio justo entre plasticidad, textura y resistencia.
+                    </li>
+                    <li>
+                    <strong>Eleonora:</strong> especialista en esmaltado gres. Su obsesión pasa por las altas temperaturas, los contrastes minerales y las fórmulas de color que hacen única a cada superficie.
+                    </li>
+                    <li>
+                    <strong>Juan:</strong> el más chico del taller, pero el dueño del torno a la hora de encarar piezas de gran escala y desafiar kilos de barro con pulso impecable.
+                    </li>
+                </ul>
+
+                <img src="../img/taller_nosotros.jpeg" alt="Foto del taller con los tornos y las mesas de trabajo" class="info-section__image">
+            </section>
+
+            <section class="info-section">
+                <div class="map-container">
+                    <h3 class="info-section__title">Donde nos encontramos</h3>
+                    <iframe 
+                        class="map-container__iframe" 
+                        src="https://maps.google.com/maps?q=Jorge+Newbery+3322,+CABA,+Buenos+Aires&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3 class="info-section__title">Envianos tu Consulta</h3>
+                <form action="https://formspree.io/f/mrpbqqre" method="POST">
+                    <div class="form-group">
+                        <label class="form-group__label" for="nombre">Nombre:</label>
+                        <input class="form-group__input" type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" for="email">Email:</label>
+                        <input class="form-group__input" type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" for="telefono">Teléfono:</label>
+                        <input class="form-group__input" type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" for="consulta">Ingrese su consulta:</label>
+                        <textarea class="form-group__textarea" name="consulta" id="consulta" rows="5" cols="50" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" for="metodo-contacto">Método de contacto:</label>
+                        <select class="form-group__select" name="metodo-contacto" id="metodo-contacto">
+                            <option value="email">Email</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="telefono">Teléfono</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" for="producto-interes">Producto de interés:</label>
+                        <select class="form-group__select" name="producto-interes" id="producto-interes">
+                            <option value="">Seleccione uno</option>
+                            <option value="plato-gres">Plato en Gres</option>
+                            <option value="taza-gres">Taza en Gres</option>
+                            <option value="jarra">Jarra</option>
+                            <option value="plato-decorativo">Plato Decorativo</option>
+                            <option value="cenicero">Cenicero</option>
+                            <option value="maceta">Maceta</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <button class="btn" type="submit" id="enviar" name="enviar">Enviar</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p><a href="mailto:mauroalexis@gmail.com" class="site-footer__link">Mauro Colombini</a> - ARTESANO</p>
+        </div>
+    </footer>
+</body>
+</html>

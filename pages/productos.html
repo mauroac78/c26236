@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Cerámica Artesanal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__container container">
+            <a href="../index.html" class="site-header__logo-link">
+                <img src="../img/logo.jpeg" alt="Logo de Cerámica Artesanal" class="site-header__logo">
+            </a>
+            <h1 class="site-header__title">ARTESANO</h1>
+            <nav class="site-nav">
+                <ul class="site-nav__list">
+                    <li><a href="../index.html" class="site-nav__link">Inicio</a></li>
+                    <li><a href="productos.html" class="site-nav__link">Productos</a></li>
+                    <li><a href="contacto.html" class="site-nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+
+            <section class="info-section">
+                <h2 class="info-section__title">Precios y stock</h2>
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Plato en Gres</td>
+                            <td>Plato refractario para servir, resistente al calor</td>
+                            <td>$325</td>
+                            <td class="stock-yes">Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Taza en Gres</td>
+                            <td>Taza artesanal con esmaltado, capacidad 350ml</td>
+                            <td>$210</td>
+                            <td class="stock-yes">Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Jarra</td>
+                            <td>Jarra decorativa de gran capacidad, diseño clásico</td>
+                            <td>$670</td>
+                            <td class="stock-no">No</td>
+                        </tr>
+                        <tr>
+                            <td>Plato Decorativo</td>
+                            <td>Plato de exhibición con motivos tradicionales</td>
+                            <td>$450</td>
+                            <td class="stock-yes">Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Cenicero</td>
+                            <td>Cenicero de cerámica con diseño artesanal</td>
+                            <td>$150</td>
+                            <td class="stock-yes">Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Maceta</td>
+                            <td>Maceta de cerámica para plantas interiores</td>
+                            <td>$280</td>
+                            <td class="stock-no">No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="info-section">
+                <h2 class="info-section__title">Detalle de Productos</h2>
+                <div class="cards">
+                    <article class="card">
+                        <img src="../img/plato-gres.jpeg" alt="Plato en gres" class="card__image">
+                        <div class="card__content">
+                            <h3 class="card__title">Plato en Gres</h3>
+                            <p class="card__description">Elaborado en gres refractario, es ideal para comida caliente. Medidas: 25cm de diámetro.</p>
+                            <p class="card__price">$325</p>
+                            <a href="#" class="btn">Comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="../img/taza.jpeg" alt="Taza en gres" class="card__image">
+                        <div class="card__content">
+                            <h3 class="card__title">Taza en Gres</h3>
+                            <p class="card__description">Taza con acabado esmaltado en tonos naturales. Capacidad de 350ml. Cada una es única.</p>
+                            <p class="card__price">$210</p>
+                            <a href="#" class="btn">Comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="../img/plato-decorativo.jpeg" alt="Plato decorativo" class="card__image">
+                        <div class="card__content">
+                            <h3 class="card__title">Plato Decorativo</h3>
+                            <p class="card__description">Plato de exhibición con motivos tradicionales pintados a mano. Diámetro: 30cm.</p>
+                            <p class="card__price">$450</p>
+                            <a href="#" class="btn">Comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="../img/maceta_sin_stock.jpeg" alt="Maceta de cerámica" class="card__image">
+                        <div class="card__content">
+                            <h3 class="card__title">Maceta</h3>
+                            <p class="card__description">Maceta de cerámica para plantas interiores. Diseño artesanal con acabado en tonos tierra.</p>
+                            <p class="card__price">$280</p>
+                            <a href="#" class="btn btn--disabled">Comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="../img/cenicero.jpeg" alt="Cenicero de cerámica" class="card__image">
+                        <div class="card__content">
+                            <h3 class="card__title">Cenicero</h3>
+                            <p class="card__description">Cenicero de cerámica con diseño artesanal. Medidas compactas para uso interior.</p>
+                            <p class="card__price">$150</p>
+                            <a href="#" class="btn">Comprar</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="../img/jarra_sin_stock.jpeg" alt="Jarra decorativa de cerámica" class="card__image">
+                        <div class="card__content">
+                            <h3 class="card__title">Jarra Decorativa</h3>
+                            <p class="card__description">Jarra de gran tamaño con diseño clásico. Ideal para decoración o servicio de agua en mesa.</p>
+                            <p class="card__price">$670</p>
+                            <a href="#" class="btn btn--disabled" >Comprar</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p><a href="mailto:mauroalexis@gmail.com" class="site-footer__link">Mauro Colombini</a> - ARTESANO</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -166,6 +166,8 @@ h1, h2, h3 {
     overflow: hidden;
     width: 300px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .card__image {
@@ -182,6 +184,7 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    flex: 1;
 }
 
 .card__title {
@@ -220,6 +223,11 @@ h1, h2, h3 {
 
 .btn:hover {
     background-color: #3e2723;
+}
+
+/* Dentro de la tarjeta, empuja el botón al fondo para alinear todos */
+.card__content .btn {
+    margin-top: auto;
 }
 
 /* Botón deshabilitado (sin stock) */

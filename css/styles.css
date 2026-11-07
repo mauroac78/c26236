@@ -12,6 +12,10 @@ body {
     font-size: 16px;
     color: #333333;
     background-color: #f5f0eb;
+    /* Columna de al menos la altura de la pantalla: el footer queda siempre abajo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1, h2, h3 {
@@ -83,6 +87,7 @@ h1, h2, h3 {
 .site-nav__list {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 5px;
     list-style: none;
 }
@@ -101,12 +106,65 @@ h1, h2, h3 {
     cursor: pointer;
 }
 
+/* Icono del carrito: misma medida y estilo que los otros enlaces del menú */
+.carrito-icono {
+    position: relative;
+    display: inline-block;
+    color: white;                /* el icono usa este color */
+    padding: 8px 15px;           /* igual que .site-nav__link */
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.carrito-icono:hover,
+.carrito-icono:focus-visible {
+    background-color: #8d6e63;   /* mismo hover que los otros enlaces */
+    outline: none;
+}
+
+.carrito-icono:focus-visible {
+    outline: 2px solid white;
+}
+
+/* Icono de Material Symbols: toma el color del texto (white) */
+.carrito-icono .material-symbols-outlined {
+    display: block;
+    font-size: 1.5rem;
+}
+
+/* Globito con la cantidad de productos, en la esquina del icono */
+#contador-carrito {
+    position: absolute;
+    top: 0;
+    right: -2px;            /* pegado a la esquina del icono */
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #3e2723;              /* marrón oscuro de la paleta */
+    background-color: #d7ccc8;   /* beige de la paleta (el de las tarjetas) */
+    border: 2px solid #5d4037;   /* borde del color del header para separarlo */
+    border-radius: 999px;
+}
+
+/* Si el carrito está vacío no se muestra el globito */
+#contador-carrito:empty {
+    display: none;
+}
+
 /* ========================================
    MAIN - ÁREA PRINCIPAL DE CONTENIDO
 ======================================== */
 .site-main {
     padding: 40px 0;
-    min-height: 70vh;
+    flex: 1; /* ocupa el espacio libre y empuja el footer hacia abajo */
 }
 
 /* ========================================
@@ -403,4 +461,109 @@ h1, h2, h3 {
 
 .equipo-lista li strong {
     color: #5d4037;
+}
+
+/* ========================================
+   CARRITO (carrito.html)
+======================================== */
+/* Tabla: precio, cantidad y subtotal centrados; botón pegado a la derecha */
+.carrito-tabla th,
+.carrito-tabla td {
+    vertical-align: middle;
+}
+
+.carrito-tabla th:nth-child(n+2),
+.carrito-tabla td:nth-child(n+2) {
+    text-align: center;
+}
+
+.carrito-tabla th:last-child,
+.carrito-tabla td:last-child {
+    text-align: right;
+}
+
+/* Fila del total: coloreada como el encabezado, etiqueta a la izquierda y monto bajo Subtotal */
+.carrito-tabla tfoot td {
+    background-color: #5d4037;
+    color: white;
+    border-bottom: none;
+    padding: 18px 15px;
+    font-weight: 700;
+}
+
+.carrito-tabla td.carrito-total__etiqueta {
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+.carrito-tabla td.carrito-total__monto {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+/* Botones debajo del total: Vaciar (secundario) y Comprar (principal) */
+.acciones-carrito {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.acciones-carrito .btn {
+    margin-top: 0;
+}
+
+/* Los <button> necesitan reset para verse igual que los enlaces .btn */
+button.btn {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+/* Botón secundario: solo contorno */
+.btn--secundario,
+button.btn--secundario {
+    background-color: transparent;
+    color: #5d4037;
+    border: 2px solid #5d4037;
+}
+
+.btn--secundario:hover {
+    background-color: #5d4037;
+    color: white;
+}
+
+/* En pantallas chicas la tabla se desplaza de costado en vez de romper el diseño */
+#contenedor-carrito {
+    overflow-x: auto;
+}
+
+/* Mensaje de carrito vacío */
+.carrito-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-vacio .material-symbols-outlined {
+    font-size: 4rem;
+    color: #8d6e63;
+}
+
+.carrito-vacio__titulo {
+    font-size: 1.5rem;
+    color: #5d4037;
+}
+
+.carrito-vacio__texto {
+    color: #666666;
+    margin-bottom: 8px;
 }

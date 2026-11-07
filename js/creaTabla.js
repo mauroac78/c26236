@@ -37,6 +37,8 @@ export function crearFila(producto) {
 
 //Funcion para renderizar las filas de la tabla
 export function renderizarTabla(lista_productos, contenedor) {
+    // Limpio el contenedor para no duplicar filas si se vuelve a renderizar
+    contenedor.innerHTML = "";
     for (const producto of lista_productos) {
         // Ejecuto la funcion que crea una fila
         const fila = crearFila(producto);

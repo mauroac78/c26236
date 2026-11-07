@@ -1,3 +1,5 @@
+import { agregarAlCarrito } from "./funcionesCarrito.js";
+
 // Funcion para generar una sola tarjeta
 export function crearTarjeta(producto, rutaImg = "./img/", rutaProductos = "./pages/productos.html") { //pongo ruta imagen porque si la uso en index es una ruta y si la usa en productos es otra.
     
@@ -35,13 +37,20 @@ export function crearTarjeta(producto, rutaImg = "./img/", rutaProductos = "./pa
     precioProducto.classList.add("card__price");
 
     // Creo el botón comprar
-    const botonVerMas = document.createElement("a");
-    botonVerMas.textContent = "Comprar";
-    botonVerMas.href = rutaProductos
+    const botonAgregarCarrito = document.createElement("a");
+    botonAgregarCarrito.textContent = "Agregar al carrito";
+    
+    // Escucha cuando se haga click en el botn agrega al carrito el producto 
+    botonAgregarCarrito.addEventListener("click", () => {
+      if (!producto.stock) return; // sin stock no se puede agregar
+      agregarAlCarrito(producto);
+      });
+      
+    // Estilo del botòn segun si hay stock o no.  
     if (producto.stock === true){
-        botonVerMas.classList.add("btn");
+        botonAgregarCarrito.classList.add("btn");
     } else{
-        botonVerMas.classList.add("btn", "btn--disabled");
+        botonAgregarCarrito.classList.add("btn", "btn--disabled");
     }
 
     // Agrego los elementos segun como quiero que se visualicen 
@@ -52,17 +61,19 @@ export function crearTarjeta(producto, rutaImg = "./img/", rutaProductos = "./pa
     divTarjeta.appendChild(tituloProducto);
     divTarjeta.appendChild(precioProducto);
     divTarjeta.appendChild(descripcionProducto);
-    divTarjeta.appendChild(botonVerMas);
+    divTarjeta.appendChild(botonAgregarCarrito);
 
     return tarjetaProducto;
-}
+};
 
 //Funcion para renderizar las tarjetas de los productos
 export function renderizarProductos(lista_productos, contenedor, opciones = {}) {
+    // Limpio el contenedor para no duplicar tarjetas si se vuelve a renderizar
+    contenedor.innerHTML = "";
     for (const producto of lista_productos) {
         // Ejecuto la funcion que crea una tarjeta
         const Tarjeta = crearTarjeta(producto, opciones.rutaImg, opciones.rutaProductos)
         // Agrego la tarjeta al contenedor
         contenedor.appendChild(Tarjeta);
     }
-}
+};

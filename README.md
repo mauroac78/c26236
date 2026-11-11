@@ -8,13 +8,13 @@ El sitio permite a un visitante conocer el taller, ver los productos con su prec
 
 ### Inicio (`index.html`)
 - Portada con la presentación del taller.
-- Los **3 productos más vendidos**, ordenados por `cantVentas`. Las tarjetas se generan con JavaScript a partir de los datos de `js/datos.js`, con imagen, descripción, precio y un botón "Agregar al carrito".
+- Los **3 productos más vendidos**, ordenados por `cantVentas`. Las tarjetas, con imagen, descripción, precio y un botón "Agregar al carrito", se generan con JavaScript a partir de los datos de `data/datos.json`, que se leen con `fetch`.
 - Sección "Sobre Nuestro Taller" con la historia y los materiales con los que trabajan (gres, porcelana y arcilla).
 
 ### Productos (`pages/productos.html`)
 - **Tabla de precios y stock** de los 6 productos, con el stock marcado en verde (SI) o rojo (NO). Las filas se generan con JavaScript.
 - **Tarjetas de producto** con imagen, descripción, precio y botón "Agregar al carrito", también generadas con JavaScript.
-- Los productos **sin stock** (`stock: false` en `js/datos.js`, hoy Maceta y Jarra) muestran la imagen `_sin_stock` con el sello "SIN STOCK" y el botón desactivado en gris (clase `btn--disabled`); además, el código no los agrega al carrito aunque se haga click. Para cambiar la disponibilidad alcanza con editar ese dato.
+- Los productos **sin stock** (`stock: false` en `data/datos.json`, hoy Maceta y Jarra) muestran la imagen `_sin_stock` con el sello "SIN STOCK" y el botón desactivado en gris (clase `btn--disabled`); además, el código no los agrega al carrito aunque se haga click. Para cambiar la disponibilidad alcanza con editar ese dato.
 
 ### Carrito (`pages/carrito.html`)
 - Cada click en "Agregar al carrito" guarda el producto en el **`localStorage`** del navegador (clave `carrito`), así que el carrito se conserva al navegar entre páginas o recargar.
@@ -93,12 +93,13 @@ c26236/
 │   └── contacto.html     # Equipo, mapa y formulario
 ├── css/
 │   └── styles.css        # Estilos de todo el sitio
+├── data/
+│   └── datos.json        # Lista de productos (título, precio, stock, ventas, imagen)
 ├── js/
-│   ├── datos.js          # Lista de productos (título, precio, stock, ventas, imagen)
 │   ├── creaTarjetas.js   # Crea y renderiza las tarjetas de producto y su botón de agregar
 │   ├── creaTabla.js      # Crea y renderiza las filas de la tabla de productos
-│   ├── index.js          # Arma los 3 más vendidos del inicio
-│   ├── productos.js      # Arma la tabla y todas las tarjetas del catálogo
+│   ├── index.js          # Lee el JSON con fetch y arma los 3 más vendidos del inicio
+│   ├── productos.js      # Lee el JSON con fetch y arma la tabla y todas las tarjetas del catálogo
 │   ├── storage.js        # Lee, guarda y borra el carrito en localStorage
 │   ├── funcionesCarrito.js # Agregar, eliminar y vaciar el carrito
 │   ├── ui.js             # Contador del header y mensajes al usuario
@@ -111,19 +112,19 @@ c26236/
 
 - **HTML5** semántico (`header`, `nav`, `main`, `section`, `article`, `footer`).
 - **CSS3** con Flexbox y una hoja de estilos única para todo el sitio, con clases nombradas según la metodología BEM (por ejemplo `card__title`, `btn--disabled` o `btn--secundario`).
-- **JavaScript** con módulos ES (`import` / `export`), manipulación del DOM para generar tarjetas, tabla y carrito automáticamente, y `localStorage` para guardar el carrito.
+- **JavaScript** con módulos ES (`import` / `export`), `fetch` con promesas (`.then` / `.catch`) para leer los productos desde un archivo JSON, manipulación del DOM para generar tarjetas, tabla y carrito automáticamente, y `localStorage` para guardar el carrito.
 - **Google Fonts**: Playfair Display para los títulos y Roboto para el texto.
 - **Material Symbols** (Google Fonts) para el ícono del carrito.
 - **Google Maps** incrustado con un `iframe`.
 - **Formspree** para recibir por email las consultas del formulario de contacto.
 
-No usa frameworks. Como el JavaScript usa módulos ES, el sitio debe abrirse desde un servidor local (por ejemplo la extensión Live Server de VS Code); abrir `index.html` con doble click no carga los módulos.
+No usa frameworks. Como el JavaScript usa módulos ES y `fetch`, el sitio debe abrirse desde un servidor local (por ejemplo la extensión Live Server de VS Code); abrir `index.html` con doble click no carga los módulos ni el JSON.
 
 ## Limitaciones actuales
 
 - El botón "Comprar" del carrito no realiza ninguna compra (`href="#"`); no hay pago ni confirmación de pedido.
 - El carrito vive en el `localStorage` de cada navegador: no se comparte entre dispositivos ni se guarda en un servidor.
-- Los productos del carrito se agrupan por título, por lo que los títulos en `js/datos.js` deben ser únicos.
+- Los productos del carrito se agrupan por título, por lo que los títulos en `data/datos.json` deben ser únicos.
 - Los avisos de agregar, quitar y vaciar usan el `alert()` del navegador.
 - El plan gratuito de Formspree tiene un límite mensual de consultas.
 

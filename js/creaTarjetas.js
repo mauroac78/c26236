@@ -1,17 +1,18 @@
+// importo funcion para agregar al carrito
 import { agregarAlCarrito } from "./funcionesCarrito.js";
 
 // Funcion para generar una sola tarjeta
 export function crearTarjeta(producto, rutaImg = "./img/", rutaProductos = "./pages/productos.html") { //pongo ruta imagen porque si la uso en index es una ruta y si la usa en productos es otra.
-    
+
     // Creo el article para la tarjeta del producto
     const tarjetaProducto = document.createElement("article");
     tarjetaProducto.classList.add("card"); // Esto me agrega el estilo css ya defino 
 
     //Creo la imagen
     const img = document.createElement("img")
-    if (producto.stock){
+    if (producto.stock) {
         img.src = rutaImg + producto.imagen
-    }else{
+    } else {
         img.src = rutaImg + producto.imagen.slice(0, producto.imagen.indexOf(".")) + "_sin_stock.jpeg"; //extraigo el nombre del producto del archivo y le agrego _sin_stock
     }
     img.alt = producto.descripcion
@@ -39,17 +40,17 @@ export function crearTarjeta(producto, rutaImg = "./img/", rutaProductos = "./pa
     // Creo el botón comprar
     const botonAgregarCarrito = document.createElement("a");
     botonAgregarCarrito.textContent = "Agregar al carrito";
-    
+
     // Escucha cuando se haga click en el botn agrega al carrito el producto 
     botonAgregarCarrito.addEventListener("click", () => {
-      if (!producto.stock) return; // sin stock no se puede agregar
-      agregarAlCarrito(producto);
-      });
-      
+        if (!producto.stock) return; // sin stock no se puede agregar
+        agregarAlCarrito(producto);
+    });
+
     // Estilo del botòn segun si hay stock o no.  
-    if (producto.stock === true){
+    if (producto.stock === true) {
         botonAgregarCarrito.classList.add("btn");
-    } else{
+    } else {
         botonAgregarCarrito.classList.add("btn", "btn--disabled");
     }
 
